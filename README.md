@@ -1,6 +1,6 @@
 # Votis
 
-Piattaforma per la gestione dello scrutinio durante consigli comunali e votazioni istituzionali.
+Piattaforma per la gestione dello scrutinio durante le elezioni comunali.
 
 ## Stack
 
@@ -42,58 +42,58 @@ DELETE /users/{id}
 
 ---
 
-## Consiglieri
+## Candidati
 
 ```http
-GET    /councilors
-POST   /councilors
-GET    /councilors/{id}
-PUT    /councilors/{id}
-DELETE /councilors/{id}
+GET    /candidates
+POST   /candidates
+GET    /candidates/{id}
+PUT    /candidates/{id}
+DELETE /candidates/{id}
 ```
 
 ---
 
-## Sedute
+## Sezioni Elettorali
 
 ```http
-GET    /sessions
-POST   /sessions
-GET    /sessions/{id}
-POST   /sessions/{id}/start
-POST   /sessions/{id}/close
+GET    /sections
+POST   /sections
+GET    /sections/{id}
+POST   /sections/{id}/open
+POST   /sections/{id}/close
 ```
 
 ---
 
-## Presenze
+## Scrutinio
 
 ```http
-GET    /sessions/{id}/attendance
-POST   /sessions/{id}/attendance
+GET    /sections/{id}/scrutiny
+POST   /sections/{id}/scrutiny
 ```
 
 ---
 
-## Ordine del Giorno
+## Liste Elettorali
 
 ```http
-GET    /sessions/{id}/agenda
-POST   /sessions/{id}/agenda
-PUT    /agenda/{id}
-DELETE /agenda/{id}
+GET    /lists
+POST   /lists
+GET    /lists/{id}
+PUT    /lists/{id}
+DELETE /lists/{id}
 ```
 
 ---
 
-## Votazioni
+## Risultati
 
 ```http
-POST   /votes
-POST   /votes/{id}/open
-POST   /votes/{id}/close
-POST   /votes/{id}/cast
-GET    /votes/{id}/results
+POST   /results
+POST   /results/import
+GET    /results/{id}
+GET    /results/{id}/totals
 ```
 
 ---
@@ -101,7 +101,7 @@ GET    /votes/{id}/results
 ## Realtime
 
 ```text
-/ws/votes/{id}
+/ws/results/{id}
 ```
 
 ---
@@ -109,7 +109,7 @@ GET    /votes/{id}/results
 ## Verbali
 
 ```http
-GET /sessions/{id}/minutes/pdf
+GET /sections/{id}/report/pdf
 ```
 
 ---
@@ -133,10 +133,10 @@ app/
 ```text
 users
 roles
-councilors
-sessions
+candidates
+sections
 attendance
-agenda_items
+electoral_lists
 votes
 vote_results
 audit_logs
