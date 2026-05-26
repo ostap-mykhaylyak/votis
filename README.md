@@ -6,9 +6,7 @@ Piattaforma per la gestione dello scrutinio durante le elezioni comunali.
 
 * PHP 8.3
 * CodeIgniter 4
-* MariaDB/PostgreSQL
-* JWT Authentication
-* WebSocket realtime
+* MariaDB
 
 ---
 
@@ -95,65 +93,3 @@ POST   /results/import
 GET    /results/{id}
 GET    /results/{id}/totals
 ```
-
----
-
-## Realtime
-
-```text
-/ws/results/{id}
-```
-
----
-
-## Verbali
-
-```http
-GET /sections/{id}/report/pdf
-```
-
----
-
-# Struttura
-
-```text
-app/
- ├── Controllers/Api/
- ├── Models/
- ├── Filters/
- ├── Entities/
- ├── Libraries/
- └── Services/
-```
-
----
-
-# Tabelle Principali
-
-```text
-users
-roles
-candidates
-sections
-attendance
-electoral_lists
-votes
-vote_results
-audit_logs
-```
-
----
-
-# Sicurezza
-
-* JWT Authentication
-* RBAC
-* Audit Log
-* HTTPS
-* Rate Limiting
-
----
-
-# Nome Progetto
-
-Votis
