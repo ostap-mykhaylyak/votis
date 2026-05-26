@@ -1,0 +1,32 @@
+{
+    "name": "ostap-mykhaylyak/votis",
+    "description": "Sistema di scrutinio per elezioni comunali",
+    "type": "project",
+    "license": "xxxxxxxx",
+    "require": {
+        "php": "^8.2",
+        "codeigniter4/framework": "^4.6",
+        "ramsey/uuid": "^4.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Modules\\": "modules/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php spark migrate"
+        ],
+        "post-update-cmd": [
+            "@php spark migrate"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
